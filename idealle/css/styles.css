@@ -17,7 +17,7 @@ body {
     align-items: center;
     padding: 0 20px;
     box-sizing: border-box;
-    z-index: 10;
+    z-index: 10001;
     border-radius: 0 0 20px 20px; /* Adiciona bordas arredondadas na parte inferior */
     transition: background-color 0.3s ease; /* Transição suave */
 }
@@ -74,7 +74,7 @@ body {
     bottom: 0;
     width: 0;
     height: 2px;
-    background: white;
+    background: #00F778;
     transition: width 0.3s ease;
 }
 #home::after {
@@ -92,6 +92,75 @@ body {
 .image-content img {
     animation: slideIn 0.5s ease-out forwards; /* Ajuste o tempo e a velocidade conforme necessário */
 }
+.menu-toggle {
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+.submenu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    background-color: #222;
+    color: #fff;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+    z-index: 1000; /* Garante que o submenu fique acima do conteúdo */
+}
+
+.submenu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    z-index: 9999999999999999;
+}
+
+.submenu ul li {
+    border-bottom: 1px solid #555;
+}
+
+.submenu ul li a {
+    display: block;
+    padding: 15px;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+}
+
+.submenu ul li a:hover {
+    background-color: #555;
+}
+
+
+/* Media Query */
+@media (max-width: 1250px) {
+
+    .menu-toggle {
+        display: flex;
+        top: 20px;
+        background-color: transparent;
+        border: none;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+    }
+    .menu ul {
+        display: none;
+
+    }
+}
+@media (max-width: 870px) {
+   
+ }
+
 
 /* Animação para aparecer de cima para baixo */
 @keyframes slideIn {
@@ -106,7 +175,8 @@ body {
 }
 
 .content {
-    background: linear-gradient(to bottom, #0B3674 80%, #ffffff 100%);
+    
+    background: #0B3674;
     min-height: 100vh;
     padding: 20px;
     box-sizing: border-box;
@@ -123,12 +193,13 @@ body {
     justify-content: center;
     color: white;
     max-width: 1200px;
-    margin-top: 100px; /* Ajuste a margem superior para mover os itens mais para cima */
+    margin-top: 100px; 
     font-family: 'Exo 2', sans-serif;
 }
 
 .image-content {
     margin-right: 20px;
+    z-index: 10000;
 }
 
 .image-content img {
@@ -139,6 +210,7 @@ body {
 }
 
 .text-content {
+    z-index: 10000;
     animation-delay: 0.2s;
     max-width: 600px;
     opacity: 0;
@@ -176,7 +248,7 @@ body {
     background-color: white;
     text-decoration: none;
     color: #0B3674;
-    border: 2px solid #0B3674;
+    border: 2px solid white;
     border-radius: 15px;
 }
 
@@ -189,11 +261,11 @@ body {
     text-decoration: none;
     background-color: #0B3674;
     color: white;
-    border: 2px solid #0B3674;
     border-radius: 15px;
     display: flex;
     align-items: center;
     gap: 8px;
+    border: 2px solid white;
 }
 
 .btn-watch-video:hover {
@@ -358,8 +430,8 @@ body {
 .rectangular-box .line {
     width: 80%;
     height: 1px; /* Linha fina */
-    background-color: white;
-    margin: 10px auto; /* Centraliza a linha */
+    background-color: #00F778;
+    margin: 10px auto; 
 }
 
 .rectangular-box .text {
@@ -368,5 +440,45 @@ body {
     text-align: center;
     font-family: 'Exo 2', sans-serif;
 }
+.container-perfil {
+    display: flex;
+    justify-content: space-between;
+    background-color: #0B3674;
+    padding: 20px;
+    margin-bottom: 60px;
+}
+
+.image-box {
+    width: 30%;
+    background-color: #0B3674;
+    text-align: center;
+    color: white;
+    border-radius: 5px;
+    margin-bottom: auto;
+}
+
+.image-box img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.image-box h3 {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.image-box hr {
+    border: none;
+    border-top: 2px solid #00F778;
+    margin: 10px 0;
+}
+
+.image-box p {
+    font-size: 14px;
+    margin: 10px 0;
+}
+/* ----------------------------------------------------------------------CONTATO---------------------------------------------------------------------------------------------- */
+
 
 

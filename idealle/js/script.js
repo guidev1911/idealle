@@ -18,79 +18,78 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Adiciona a animação de estrelas piscando
-    const canvas = document.createElement('canvas');
-    canvas.className = 'stars';
-    document.querySelector('.content').appendChild(canvas);
-    const ctx = canvas.getContext('2d');
+   // Adiciona a animação de estrelas piscando
+   const canvas = document.createElement('canvas');
+   canvas.className = 'stars';
+   document.querySelector('.content').appendChild(canvas);
+   const ctx = canvas.getContext('2d');
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+   canvas.width = window.innerWidth;
+   canvas.height = window.innerHeight;
 
-    let stars = [];
-    const numStars = 100;
+   let stars = [];
+   const numStars = 100;
 
-    function createStar() {
-        return {
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            size: Math.random() * 2 + 1,
-            speed: Math.random() * 0.5 + 0.5,
-            alpha: Math.random() * 0.5 + 0.5, // Opacidade inicial
-            alphaDirection: Math.random() < 0.5 ? 1 : -1 // Direção de alteração da opacidade
-        };
-    }
+   function createStar() {
+       return {
+           x: Math.random() * canvas.width,
+           y: Math.random() * canvas.height,
+           size: Math.random() * 2 + 1,
+           speed: Math.random() * 0.5 + 0.5,
+           alpha: Math.random() * 0.5 + 0.5, // Opacidade inicial
+           alphaDirection: Math.random() < 0.5 ? 1 : -1 // Direção de alteração da opacidade
+       };
+   }
 
-    for (let i = 0; i < numStars; i++) {
-        stars.push(createStar());
-    }
+   for (let i = 0; i < numStars; i++) {
+       stars.push(createStar());
+   }
 
-    function drawStars() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = 'white';
+   function drawStars() {
+       ctx.clearRect(0, 0, canvas.width, canvas.height);
+       ctx.fillStyle = 'white';
 
-        stars.forEach(star => {
-            ctx.globalAlpha = star.alpha;
-            ctx.beginPath();
-            ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
-            ctx.fill();
+       stars.forEach(star => {
+           ctx.globalAlpha = star.alpha;
+           ctx.beginPath();
+           ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+           ctx.fill();
 
-            star.x += star.speed;
-            if (star.x > canvas.width) {
-                star.x = 0;
-            }
+           star.x += star.speed;
+           if (star.x > canvas.width) {
+               star.x = 0;
+           }
 
-            // Alterando a opacidade das estrelas para criar o efeito de piscar
-            star.alpha += star.alphaDirection * 0.01;
-            if (star.alpha > 1 || star.alpha < 0.1) {
-                star.alphaDirection *= -1;
-            }
-        });
-    }
+           // Alterando a opacidade das estrelas para criar o efeito de piscar
+           star.alpha += star.alphaDirection * 0.01;
+           if (star.alpha > 1 || star.alpha < 0.1) {
+               star.alphaDirection *= -1;
+           }
+       });
+   }
 
-    function animate() {
-        drawStars();
-        requestAnimationFrame(animate);
-    }
+   function animate() {
+       drawStars();
+       requestAnimationFrame(animate);
+   }
 
-    animate();
+   animate();
 
-    window.addEventListener('resize', function() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    });
+   window.addEventListener('resize', function() {
+       canvas.width = window.innerWidth;
+       canvas.height = window.innerHeight;
+   });
+    
 
     // Adiciona a animação do menu ao rolar a página
-    const menu = document.querySelector('.menu');
-    const menuHeight = menu.offsetHeight; // Altura do menu
-
-    function onScroll() {
-        if (window.scrollY > menuHeight) {
-            menu.classList.add('scrolled');
+    window.addEventListener('scroll', function() {
+        const div = document.querySelector('.menu');
+        if (window.scrollY > 0) {
+          div.classList.add('scrolled');
         } else {
-            menu.classList.remove('scrolled');
+          div.classList.remove('scrolled');
         }
-    }
+      });
 
     // Adiciona um listener de scroll
     window.addEventListener('scroll', onScroll);
@@ -125,5 +124,31 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    let slides = document.getElementsByClassName("slide");
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].classList.remove("active");
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) { slideIndex = 1 }    
+    slides[slideIndex - 1].classList.add("active");
+    setTimeout(showSlides, 3000); // Altera a imagem a cada 3 segundos
+}
+
+function changeSlide(n) {
+    slideIndex += n;
+    let slides = document.getElementsByClassName("slide");
+    if (slideIndex > slides.length) { slideIndex = 1 }
+    if (slideIndex < 1) { slideIndex = slides.length }
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].classList.remove("active");
+    }
+    slides[slideIndex - 1].classList.add("active");
+}
+
 
 

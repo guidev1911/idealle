@@ -578,7 +578,7 @@ body {
 .slideshow-container {
     position: relative;
     max-width: 100%;
-    height: 400px;
+    height: 600px;
     overflow: hidden;
 }
 
@@ -628,5 +628,183 @@ body {
 
 .prev:hover, .next:hover {
     background-color: rgba(0,0,0,0.8);
+}
+/* ----------------------------------------------------------------------NOSSO TIME---------------------------------------------------------------------------------------------- */
+.profile-carousel {
+    align-items: center;
+    overflow: hidden;
+    position: absolute;
+    width: 80%;
+    margin: auto;
+}
+
+.profile-container {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.profile {
+    margin: 0 10px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.profile img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.profile .title {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    color: white;
+    font-size: 14px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px;
+    border-radius: 0 0 50% 50%;
+}
+
+.profile img:hover {
+    transform: scale(1.1);
+}
+
+.arrow {
+    cursor: pointer;
+    font-size: 24px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.arrow.left {
+    left: 10px;
+}
+
+.arrow.right {
+    right: 10px;
+}
+
+.profile-carousel {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    margin: auto;
+    background-color: #0B3674; /* Azul escuro no fundo do carrossel */
+    padding: 50px 0; /* Aumenta a área preta acima e abaixo do carrossel */
+}
+
+.profile-container {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.profile {
+    min-width: 300px; /* Largura mínima das imagens */
+    margin: 0 20px; /* Espaçamento entre as imagens */
+    text-align: center;
+    position: relative;
+    overflow: visible; /* Permite que a imagem aumente sem ser cortada */
+    cursor: pointer;
+}
+
+.profile img {
+    width: 300px; /* Tamanho das imagens */
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    border: 5px solid #00F778; /* Verde nas bordas */
+    z-index: 1; /* Garante que a imagem esteja acima da div do texto */
+}
+
+.profile img:hover {
+    transform: scale(1.1);
+}
+
+.profile .title {
+    position: absolute;
+    bottom: -20px; /* Posiciona um pouco abaixo da foto */
+    width: 100%;
+    color: white;
+    font-size: 18px; /* Mantém o tamanho da fonte anterior */
+    background: linear-gradient(45deg, black, #00F778); /* Gradiente do preto para verde */
+    padding: 15px; /* Mantém o padding anterior */
+    border-radius: 0 0 50% 50%;
+    z-index: 2; /* Garante que a div do texto esteja acima da imagem */
+    box-sizing: border-box; /* Inclui padding e border no cálculo da largura */
+    font-family: 'Exo 2', sans-serif;
+}
+
+.arrow {
+    cursor: pointer;
+    font-size: 36px;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo das setas */
+    color: #00F778; /* Verde nas setas */
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.arrow.left {
+    left: 10px;
+}
+
+.arrow.right {
+    right: 10px;
+}
+.background-section {
+    position: relative;
+    width: 100%;
+    height: 700px; /* Ajuste a altura conforme necessário */
+    background-image: url('../img/team.jpg'); /* Substitua pelo caminho da sua imagem */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.background-content {
+    position: relative;
+    padding: 20px;
+    background: transparent; /* Remove o fundo semitransparente */
+    border-radius: 10px;
+}
+
+.background-content h1 {
+    font-size: 36px; /* Ajuste o tamanho do texto conforme necessário */
+    margin: 0;
+}
+.gradient-rectangle {
+    position: absolute;
+    top: 500px;
+    width: 100%; /* Ajuste a largura conforme necessário */
+    height: 200px; /* Ajuste a altura conforme necessário */
+    background: linear-gradient(to top, #0B3674, transparent);
+}
+.gradient-rectangle2 {
+    position: absolute;
+    top: 400px;
+    width: 100%; /* Ajuste a largura conforme necessário */
+    height: 200px; /* Ajuste a altura conforme necessário */
+    background: linear-gradient(to top, #0B3674, transparent);
+   
 }
 

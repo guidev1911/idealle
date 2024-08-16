@@ -150,5 +150,3 @@ function changeSlide(n) {
     slides[slideIndex - 1].classList.add("active");
 }
 
-
-

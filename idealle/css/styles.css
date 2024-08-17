@@ -23,6 +23,7 @@ body {
 }
 .menu.scrolled {
     background-color: #0B3674;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 #logoIdealle {
@@ -114,6 +115,7 @@ body {
     width: 200px; /* Largura do menu */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 10000000; /* Garante que o menu ficará sobre qualquer outro elemento */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 .submenu ul {
@@ -223,6 +225,7 @@ body {
     animation: slideIn 0.5s ease-out forwards;
     animation-delay: 0.2s;
     font-family: 'Exo 2', sans-serif; /* Aplica a fonte Exo 2 */
+    text-shadow: 6px 6px 10px rgba(0, 0, 0, 0.5);
 }
 
 .text-content h1 {
@@ -247,6 +250,7 @@ body {
     font-family: 'Roboto', sans-serif;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 .btn-get-started {
@@ -357,6 +361,8 @@ body {
     width: 45%;
     height: 200px;
     border-radius: 15px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+    z-index: 10;
 }
 
 .footer {
@@ -491,11 +497,13 @@ body {
     background: linear-gradient(to bottom, #0B3674, #010e20);
     color: #FFFFFF;
     padding: 50px 20px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
 }
 
 .contact-header {
     text-align: center;
     margin-bottom: 40px;
+    animation: slideIn 0.5s ease-out forwards;
 }
 
 .contact-header h2 {
@@ -522,6 +530,8 @@ body {
     padding: 20px;
     background: rgba(0, 0, 0, 0.8);
     border-radius: 10px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+    animation: slideIn 0.5s ease-out forwards;
 }
 
 .contact-info h3, .contact-form h3 {
@@ -640,7 +650,10 @@ body {
 
 .profile-container {
     display: flex;
+    animation: slideIn 0.5s ease-out forwards;
     transition: transform 0.5s ease;
+    animation: slideIn 0.5s ease-out forwards;
+   
 }
 
 .profile {
@@ -791,6 +804,8 @@ body {
 .background-content h1 {
     font-size: 36px; /* Ajuste o tamanho do texto conforme necessário */
     margin: 0;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    animation: slideIn 0.5s ease-out forwards;
 }
 .gradient-rectangle {
     position: absolute;
@@ -799,7 +814,7 @@ body {
     height: 200px; /* Ajuste a altura conforme necessário */
     background: linear-gradient(to top, #0B3674, transparent);
 }
-.gradient-rectangle2 {
+.gradient-rectangle-contact {
     position: absolute;
     top: 400px;
     width: 100%; /* Ajuste a largura conforme necessário */
@@ -807,4 +822,3 @@ body {
     background: linear-gradient(to top, #0B3674, transparent);
    
 }
-

@@ -1,0 +1,490 @@
+body {
+    margin: 0;
+    font-family: 'Exo 2', sans-serif; /* Fonte padrão Exo 2 */
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%; /* Ajuste conforme necessário */
+    height: 80px;
+    background-color: rgba(11, 54, 116, 0); /* Inicialmente transparente */
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 10001;
+    border-radius: 0 0 20px 20px; /* Adiciona bordas arredondadas na parte inferior */
+    transition: background-color 0.3s ease; /* Transição suave */
+}
+.menu.scrolled {
+    background-color: #0B3674;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+#logoIdealle {
+    width: 150px;
+    height: auto;
+    margin-right: 20px;
+    animation: slideIn 0.5s ease-out forwards;
+}
+
+#logoIdealle img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: slideIn 0.5s ease-out forwards;
+    flex-wrap: nowrap;
+    margin-left: 20px;
+}
+
+.menu ul li {
+    margin: 0 20px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    position: relative;
+    display: inline-block;
+    padding: 5px 0;
+    transition: color 0.3s;
+    font-family: 'Roboto', sans-serif;
+    white-space: nowrap;
+}
+
+.menu ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: #00F778;
+    transition: width 0.3s ease;
+}
+#home::after {
+    width: 100%; /* Linha sempre visível */
+    transition: none; /* Remove a animação */
+}
+
+.menu ul li a:hover::after {
+    width: 100%;
+}
+.menu ul li a:hover::after {
+    width: 100%;
+}
+
+.image-content img {
+    animation: slideIn 0.5s ease-out forwards; /* Ajuste o tempo e a velocidade conforme necessário */
+}
+.menu-toggle {
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.submenu {
+    display: none;
+    position: fixed; /* Fixa o menu na tela */
+    top: 8%; /* Distância do topo */
+    right: 0%; /* Distância da direita */
+    background-color: #0B3674;
+    border-radius: 15px 0px 0px 15px;
+    padding: 10px;
+    width: 200px; /* Largura do menu */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10000000; /* Garante que o menu ficará sobre qualquer outro elemento */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.submenu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.submenu ul li {
+    margin: 10px 0;
+}
+
+.submenu ul li a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    font-family: 'Exo 2', sans-serif;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.submenu ul li a:hover {
+    background-color: #00F778; /* Cor ao passar o mouse */
+    color: #000;
+}
+
+/* Media Query */
+@media (max-width: 1250px) {
+
+    .menu-toggle {
+        display: flex;
+        top: 20px;
+        background-color: transparent;
+        border: none;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        animation: slideIn 0.5s ease-out forwards;
+    }
+    .menu ul {
+        display: none;
+
+    }
+}
+@media (max-width: 870px) {
+  
+   .intro .image-content {
+    display: none
+   }
+ }
+
+
+/* Animação para aparecer de cima para baixo */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.content {
+    
+    background: #0B3674;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.intro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    max-width: 1200px;
+    margin-top: 100px; 
+    font-family: 'Exo 2', sans-serif;
+}
+
+.image-content {
+    margin-right: 20px;
+    z-index: 10000;
+}
+
+.image-content img {
+    width: 501px;
+    height: 502px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.text-content {
+    z-index: 10000;
+    animation-delay: 0.2s;
+    max-width: 600px;
+    background-color:  transparent;
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: slideIn 0.5s ease-out forwards;
+    animation-delay: 0.2s;
+    font-family: 'Exo 2', sans-serif; /* Aplica a fonte Exo 2 */
+    text-shadow: 6px 6px 10px rgba(0, 0, 0, 0.5);
+}
+
+.text-content h1 {
+    font-size: 43.2px;
+    margin-bottom: 24px;
+}
+
+.text-content p {
+    font-size: 21.6px;
+}
+
+.buttons {
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+}
+
+.btn-get-started, .btn-watch-video {
+    padding: 10px 20px;
+    border: none;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.btn-get-started {
+    background-color: white;
+    text-decoration: none;
+    color: #0B3674;
+    border: 2px solid white;
+    border-radius: 15px;
+}
+
+.btn-get-started:hover {
+    background-color: #2263bd86;
+    color: white;
+}
+
+.btn-watch-video {
+    text-decoration: none;
+    background-color: #0B3674;
+    color: white;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 2px solid white;
+}
+
+.btn-watch-video:hover {
+    background-color: #2263bd86;
+    color: white;
+}
+
+.btn-watch-video .icon {
+    font-size: 18px;
+}
+
+.test-content {
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0 auto;
+    border-radius: 8px;
+    max-width: 1200px;
+    text-align: center;
+}
+
+/* Estilo para o vídeo com fundo borrado */
+.video-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 500000000000000000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.video-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.video-container {
+    width: 80%;
+    max-width: 900px;
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+/* Estilo para o fundo de estrelas e universo */
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Garante que o canvas não interfira com cliques */
+    background: radial-gradient(transparent 20%, #000 80%);
+    z-index: 1; /* Fica atrás do conteúdo */
+    overflow: hidden;
+}
+.rectangular-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 80px; /* Distância das divs em relação à .content */
+    margin-bottom: 40px; /* Aumenta a distância das divs em relação ao conteúdo teste */
+    padding: 0 10%;
+}
+
+.rectangular-box {
+    background-color: #0B3674;
+    width: 45%;
+    height: 200px;
+    border-radius: 15px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+.footer {
+    background: linear-gradient(to bottom, #0B3674, #000000);
+    color: white;
+    padding: 40px 10%;
+    text-align: left;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 20px;
+}
+
+.footer-column h3 {
+    margin-bottom: 15px;
+    font-weight: 400;
+}
+
+.footer-column p, .footer-column a {
+    margin: 5px 0;
+    font-size: 14px;
+    color: white;
+    text-decoration: none;
+}
+/* Adiciona espaçamento entre ícones e texto */
+.footer-column i {
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.footer-column a {
+    display: flex;
+    align-items: center;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 14px;
+    border-top: 1px solid #4F6E9F;
+    margin-top: 20px;
+}
+.rectangular-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 80px; /* Distância das divs em relação à .content */
+    margin-bottom: 40px; /* Aumenta a distância das divs em relação ao conteúdo teste */
+    padding: 0 10%;
+}
+
+.rectangular-box {
+    background-color: #0B3674;
+    width: 45%;
+    height: auto; /* Ajuste automático para o conteúdo */
+    border-radius: 15px;
+    padding: 20px; /* Espaçamento interno */
+    box-sizing: border-box;
+}
+
+.rectangular-box .title {
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-family: 'Exo 2', sans-serif;
+}
+.line {
+    width: 80%;
+    height: 1px; /* Linha fina */
+    background-color: #00F778;
+    margin: 10px auto; 
+}
+.rectangular-box .line {
+    width: 80%;
+    height: 1px; /* Linha fina */
+    background-color: #00F778;
+    margin: 10px auto; 
+}
+
+.rectangular-box .text {
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    font-family: 'Exo 2', sans-serif;
+}
+.container-perfil {
+    display: flex;
+    justify-content: space-between;
+    background-color: #0B3674;
+    padding: 20px;
+    margin-bottom: 60px;
+}
+
+.image-box {
+    width: 30%;
+    background-color: #0B3674;
+    text-align: center;
+    color: white;
+    border-radius: 5px;
+    margin-bottom: auto;
+}
+
+.image-box img {
+    width: 20%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.image-box h3 {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.image-box p {
+    font-size: 14px;
+    margin: 10px 0;
+}

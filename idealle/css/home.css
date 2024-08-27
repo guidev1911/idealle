@@ -1,8 +1,152 @@
+html {
+    scroll-behavior: smooth;
+}
 body {
     margin: 0;
-    font-family: 'Exo 2', sans-serif; /* Fonte padrão Exo 2 */
+    font-family: 'Exo 2', sans-serif;
+    color: #fff;
+    overflow-x: hidden;
 }
 
+header {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    padding: 2rem; /* Adiciona um pouco de espaçamento ao redor */
+}
+
+.header-content {
+    display: flex;
+    align-items: flex-start; /* Alinha itens no início */
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px; /* Limita a largura máxima */
+    margin: auto;
+}
+
+.header-image {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 1rem; /* Espaço entre a imagem e o texto */
+    animation: slideIn 0.5s ease-out forwards;
+}
+
+.header-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.header-text {
+    flex: 1; 
+    text-align: left;
+    animation: slideIn 0.5s ease-out forwards;
+}
+
+.header-text h1 {
+    font-size: 3rem;
+    color: #00F778;
+    margin: 0;
+    font-family: 'Exo 2', sans-serif;
+    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.671);
+    position: relative;
+    display: inline-block; /* Necessário para posicionar a seta corretamente */
+    min-height: 3.5rem; /* Define uma altura mínima para o h1 para evitar que o layout se mova */
+    text-align: left;
+    margin-bottom: 50px;
+}
+
+.header-text h1::after {
+    content: '|'; /* O caractere da seta (pode ajustar o estilo se necessário) */
+    font-family: 'Exo 2', sans-serif; /* Usar a mesma fonte */
+    color: #00F778; /* Cor da seta */
+    position: absolute;
+    right: -0.5rem; /* Ajuste a posição da seta para mais próximo das letras */
+    top: 0; /* Ajusta a posição vertical da seta, se necessário */
+    font-size: 3rem; /* Ajuste o tamanho da seta para combinar com o texto */
+    animation: blink 1s step-start infinite; /* Animação de piscar */
+}
+
+.header-text p {
+    font-size: 1.25rem;
+    color: #fff;
+    margin: 1rem 0 0; /* Ajusta a margem superior para garantir o espaçamento adequado */
+    font-family: 'Exo 2', sans-serif; /* Adiciona a mesma fonte */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    padding-top: 30px;
+}
+.area-btn {
+    padding: 15px 1px;
+    margin-top: 120px;
+    transition: transform 0.3s ease;
+}
+.fale-conosco-btn {
+    background-color: #00F778;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.541);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.925);
+}
+.fale-conosco-btn:hover {
+    background-color: #00f777cb;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: left; /* Alinha o texto à esquerda em telas menores */
+    }
+    
+    .header-image {
+        flex: none; /* Remove o ajuste de flex em telas menores */
+        width: 100%; /* Faz a imagem ocupar toda a largura disponível */
+        padding-right: 0; /* Remove o espaçamento em telas menores */
+        margin-bottom: 1rem; /* Espaço abaixo da imagem */
+        display: flex; /* Garante que a imagem fique centralizada horizontalmente */
+        justify-content: center; /* Centraliza a imagem horizontalmente */
+    }
+
+    .header-image img {
+        max-width: 80%; /* Ajusta o tamanho máximo da imagem */
+        height: auto;
+    }
+
+    .header-text {
+        text-align: left; /* Alinha o texto à esquerda em telas menores */
+    }
+
+    .header-text h1::after {
+        display: none; /* Remove a seta em telas menores */
+    }
+}
+/* Estilos do fundo animado */
+#starfield {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    background: radial-gradient(#0B3674 20%, #000 80%);
+}
 .menu {
     position: fixed;
     top: 0;
@@ -142,7 +286,11 @@ body {
 }
 
 /* Media Query */
-@media (max-width: 1250px) {
+@media (max-width: 1200px) {
+
+    .card-container {
+       display: none;
+    }
 
     .menu-toggle {
         display: flex;
@@ -158,11 +306,21 @@ body {
         display: none;
 
     }
+    .card-container {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+    .contact-form, .contact-info {
+        min-width: 300px;
+    }
+    
 }
-@media (max-width: 870px) {
+@media (min-width: 800px) {
   
    .intro .image-content {
-    display: none
+        display: none
+   }
+   .card-container {
+    grid-template-columns: repeat(3, 1fr);
    }
  }
 
@@ -179,193 +337,545 @@ body {
     }
 }
 
-.content {
-    
-    background: #0B3674;
-    min-height: 100vh;
-    padding: 20px;
-    box-sizing: border-box;
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.card {
+    opacity: 0; 
+    transform: translateX(-100%); 
+    transition: transform 1s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 1s ease-in-out;
+}
+
+.card.visible {
+    opacity: 1;
+    transform: translateX(0);
+    animation: slideInFromLeft 1s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+.area-cartoes {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card-container {
+    max-width: 1000px;
+    display: grid;
+    gap: 20px;
+    width: 60%; 
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
 }
 
-.intro {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    max-width: 1200px;
-    margin-top: 100px; 
-    font-family: 'Exo 2', sans-serif;
-}
-
-.image-content {
-    margin-right: 20px;
-    z-index: 10000;
-}
-
-.image-content img {
-    width: 501px;
-    height: 502px;
+.card img {
+    border-radius: 15px 15px 0px 0px;
+    width: 100%;
+    height: 35%; /* Ajuste a altura conforme necessário */
     object-fit: cover;
-    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    
 }
 
-.text-content {
-    z-index: 10000;
-    animation-delay: 0.2s;
-    max-width: 600px;
-    background-color:  transparent;
+.card h3 {
+    margin: 15px;
+    font-size: 18px;
+    color: #333;
+}
+
+.card p {
+    margin: 0 15px 15px;
+    color: #666;
+    font-size: 14px;
+}
+
+.body-tec {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Remove a rolagem */
+    position: relative; /* Necessário para que a div flutuante seja posicionada em relação ao body */
+}
+
+.tec-container {
+    position: relative; /* Necessário para que a div azul flutue em relação a este contêiner */
+    width: 100vw;
+    height: 100vh;
+}
+
+.tec-div-esquerda {
+    width: 100%;
+    height: 100%;
+    background-color: #dddddd;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    text-align: left; /* Alinha a imagem à direita */
+    padding: 20px;
+}
+.tec-div-esquerda img {
+    width: 30%;
+    min-width: 500px;
+    margin-top: 30px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+.tec-div-esquerda img:hover {
+    transform: scale(1.1);
+}
+
+.tec-div-direita {
+    width: 20%;
+    height: 100%;
+    background: linear-gradient(to top right,black, #0B3674);
+    position: absolute; /* Faz com que a div fique sobre a div branca */
+    top: 0;
+    right: 0;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 20% 100%);
+    padding: 200px 250px 0px 300px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    transform: translateX(-100vw); /* Começa fora da tela à esquerda */
     opacity: 0;
-    transform: translateY(-50px);
-    animation: slideIn 0.5s ease-out forwards;
-    animation-delay: 0.2s;
-    font-family: 'Exo 2', sans-serif; /* Aplica a fonte Exo 2 */
-    text-shadow: 6px 6px 10px rgba(0, 0, 0, 0.5);
+    transition: opacity 1s ease-out;
 }
-
-.text-content h1 {
-    font-size: 43.2px;
-    margin-bottom: 24px;
+.tec-div-direita-back {
+    background-color: #000;
+    width: 20%;
+    height: 100%;
+    position: absolute; /* Faz com que a div fique sobre a div branca */
+    top: 0;
+    right: 0;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 100%);
+    padding: 200px 400px 0px 300px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    transform: translateX(-4000vw); /* Começa fora da tela à esquerda */
+    opacity: 0;
+    transition: opacity 1s ease-out;
+    
 }
-
-.text-content p {
-    font-size: 21.6px;
+@keyframes moverDiv {
+    0% {
+        transform: translateX(-100vw); /* Começa fora da tela à esquerda */
+        opacity: 0;
+    }
+    50% {
+        transform: translateX(50vw); /* Movimento rápido para o meio */
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(0); /* Movimento lento para a posição final */
+        opacity: 1;
+    }
 }
-
-.buttons {
-    margin-top: 40px;
-    display: flex;
-    gap: 20px;
+.tec-div-direita.show {
+    animation: moverDiv 2s ease-out;
 }
-
-.btn-get-started, .btn-watch-video {
-    padding: 10px 20px;
-    border: none;
-    font-size: 16px;
-    font-family: 'Roboto', sans-serif;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+.tec-div-direita-back.show {
+    animation: moverDiv 2.5s ease-out;
 }
-
-.btn-get-started {
-    background-color: white;
-    text-decoration: none;
-    color: #0B3674;
-    border: 2px solid white;
-    border-radius: 15px;
+.tec-div-esquerda img.show {
+    animation: moverDiv 4s alternate;
 }
-
-.btn-get-started:hover {
-    background-color: #2263bd86;
-    color: white;
+.tec-div-direita h2{
+    font-size: 36px;
+    color: #00F778;
 }
-
-.btn-watch-video {
-    text-decoration: none;
-    background-color: #0B3674;
-    color: white;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    border: 2px solid white;
+.tec-div-direita p {
+    font-size: 18px;
 }
-
-.btn-watch-video:hover {
-    background-color: #2263bd86;
-    color: white;
-}
-
-.btn-watch-video .icon {
+.tec-div-esquerda {
     font-size: 18px;
 }
 
-.test-content {
-    padding: 20px;
-    background-color: #f4f4f4;
-    color: #333;
-    margin: 0 auto;
-    border-radius: 8px;
-    max-width: 1200px;
+
+
+
+.container-xxl {
+    padding: 5rem 0;
+}
+
+.text-center {
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
     text-align: center;
+    opacity: 0; /* Inicialmente invisível */
+    transform: translateY(-100px); /* Começa acima da posição final */
+    transition: opacity 0.5s ease-out, transform 1.5s ease-out; 
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
 }
 
-/* Estilo para o vídeo com fundo borrado */
-.video-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 500000000000000000;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.video-overlay.active {
+.show {
     opacity: 1;
-    visibility: visible;
+    transform: translateY(0); /* Move para a posição final */
 }
 
-.video-container {
-    width: 80%;
-    max-width: 900px;
+.text-center p {
+    display: block;
+    margin: 0 auto 1rem auto;
+}
+
+.text-center h1 {
+    font-size: 36px;
+    color: #00F778;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.team-item {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    height: 0;
+    border: 2px solid #fff; /* Borda branca ao redor da div */
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-align: center;
+    padding: 1rem;
+    background-color: transparent; /* Fundo transparente por padrão */
+    height: 500px; /* Altura da div */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 600px; /* Limite máximo de largura */
+    margin: 0 auto; /* Centraliza as divs */
+}
+@keyframes scaleUp {
+    from {
+        transform: scale(0.2);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 8px;
-}
-
-/* Estilo para o fundo de estrelas e universo */
-.stars {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none; /* Garante que o canvas não interfira com cliques */
-    background: radial-gradient(transparent 20%, #000 80%);
-    z-index: 1; /* Fica atrás do conteúdo */
-    overflow: hidden;
-}
-.rectangular-container {
+.team-item {
+    opacity: 0; /* Inicialmente invisível */
+    transform: scale(0.2); /* Inicialmente pequeno */
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+    height: 90%;
+    max-width: 400px;
     display: flex;
     justify-content: space-between;
-    margin-top: 80px; /* Distância das divs em relação à .content */
-    margin-bottom: 40px; /* Aumenta a distância das divs em relação ao conteúdo teste */
-    padding: 0 10%;
+   
 }
 
-.rectangular-box {
-    background-color: #0B3674;
-    width: 45%;
-    height: 200px;
-    border-radius: 15px;
+/* Classe que será adicionada quando a div estiver visível */
+.team-item.visible {
+    animation: scaleUp 0.8s ease-out forwards;
+}
+
+.team-item:hover {
+    background-color: #0B3674; /* Fundo azul ao passar o mouse */
+    transform: scale(1.05); /* Zoom suave ao passar o mouse */
+}
+
+.team-item img {
+    width: 100%;
+    height: 70%; /* Ajuste da altura da imagem para ser retangular na vertical */
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+.team-text {
+    margin-top: 1rem;
+}
+
+.team-social {
+    margin-top: 1rem;
+    justify-content: center;
+}
+.team-social .btn {
+    color: #fff; /* Ícones brancos */
+    background-color: transparent; /* Fundo transparente para os botões */
+    border: none; /* Remover borda */
+    border-radius: 50%;
+    padding: 5px;
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Animação suave */
+    font-size: 1.2rem; /* Aumenta o tamanho dos ícones */
+}
+
+.team-social .btn:hover {
+    transform: scale(1.1); 
+    color: #0B3674;
+    background-color: white;
+}
+
+.team-social {
+    margin-top: 1rem;
+}
+
+.team-social .btn-square {
+    margin: 0 0.5rem; /* Aumenta o espaço entre os ícones */
+}
+
+.btn-square {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.btn-square:hover {
+    background-color: #0056b3; /* Mudar cor ao passar o mouse */
+    color: #fff;
+}
+
+.row.g-4 {
+    display: flex;
+    justify-content: center; /* Centraliza as colunas */
+    gap: 2rem; /* Espaço entre as divs */
+}
+
+.col-lg-4,
+.col-md-6 {
+    flex: 1;
+    max-width: 100%; /* Ajuste para ocupar toda a largura disponível */
+    margin: 0 0.5%; /* Pequeno espaço entre as colunas */
+}
+.team-text p.small-text {
+    margin-top: 0.5rem;
+    font-size: 0.9rem; /* Tamanho da fonte menor */
+    color: #6c757d; /* Cor do texto */
+}
+
+@media (max-width: 768px) {
+    .col-lg-4,
+    .col-md-6 {
+        max-width: 100%;
+        margin-bottom: 2rem;
+    }
+}
+
+.our-clients {
+    background-color: #f9f9f9;
+    padding: 50px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 28px rgb(0, 0, 0);
+}
+
+.our-clients h2 {
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 400;
+    font-size: 2.5rem;
+    color: #0B3674;
+    margin-bottom: 30px;
+}
+
+.testimonials-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+    animation: scroll 30s linear infinite;
+}
+
+.testimonial {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-width: 300px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+.testimonial:hover {
+    background-color: #0B3674; /* Cor de fundo quando o mouse passa por cima */
+    border-color: #0B3674; /* Cor da borda quando o mouse passa por cima */
+    color: #fff; /* Cor do texto quando o mouse passa por cima */
+    transform: scale(1.1);
+    box-shadow: 0px 0px 15px 5px #00F778;
+    h3, p{
+        color: white;
+    }
+}
+
+.testimonial-content {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.testimonial-author img {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+.testimonial-author div {
+    text-align: left;
+}
+
+.testimonial-author h3 {
+    font-size: 1.2rem;
+    margin: 0;
+    color: #0B3674;
+}
+
+.testimonial-author p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* Animação suave para rolar os comentários */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.contact-section {
+    color: #FFFFFF;
+    padding: 50px 20px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.contact-header h2 {
+    font-size: 36px;
+    color: #00F778;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.contact-header p {
+    font-size: 18px;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.contact-content {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center; /* Alinha horizontalmente ao centro */
+}
+.contact-form,
+.contact-info {
+    opacity: 0;
+    transform: translateX(-100px); /* Inicia fora da tela, à esquerda */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    max-width: 500px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
-    z-index: 10;
+}
+.contact-form {
+    transform: translateX(100px); /* Inicia fora da tela, à direita */
+}
+
+.visible {
+    opacity: 1;
+    transform: translateX(0); /* Retorna à posição original */
+}
+
+.contact-info h3, .contact-form h3 {
+    font-size: 24px;
+    color: #00F778;
+    margin-bottom: 20px;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.contact-info p {
+    font-size: 18px;
+    margin: 10px 0;
+    font-family: 'Exo 2', sans-serif;
+}
+.fixed-textarea {
+    width: 300px;   
+    height: 300px;  
+    resize: none;   
+}
+
+.contact-form input, .contact-form textarea {
+    width: 90%;
+    padding: 10px ;
+    margin: 10px 0;
+    border: 2px solid #00F778;
+    border-radius: 5px;
+    background: #0B3674;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.contact-form button {
+    padding: 10px 20px;
+    background: #00F778;
+    border: none;
+    border-radius: 5px;
+    color: #0B3674;
+    font-size: 18px;
+    cursor: pointer;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.contact-form button:hover {
+    background: #00cc61;
+}
+.location-image {
+    margin-top: 20px;
+    border-radius: 10px;
+    border: 2px solid #00F778;
+    overflow: hidden;
+}
+
+.location-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.wave-container {
+    width: 100%;
+    height: 200px;
+    position: relative;
+}
+
+.wave-container svg {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(180deg); /* Inverte a onda para o topo */
 }
 
 .footer {
-    background: linear-gradient(to bottom, #0B3674, #000000);
+    background: linear-gradient(to bottom,#0B3674,  #000000);
     color: white;
     padding: 40px 10%;
     text-align: left;
@@ -412,79 +922,4 @@ body {
     font-size: 14px;
     border-top: 1px solid #4F6E9F;
     margin-top: 20px;
-}
-.rectangular-container {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 80px; /* Distância das divs em relação à .content */
-    margin-bottom: 40px; /* Aumenta a distância das divs em relação ao conteúdo teste */
-    padding: 0 10%;
-}
-
-.rectangular-box {
-    background-color: #0B3674;
-    width: 45%;
-    height: auto; /* Ajuste automático para o conteúdo */
-    border-radius: 15px;
-    padding: 20px; /* Espaçamento interno */
-    box-sizing: border-box;
-}
-
-.rectangular-box .title {
-    text-align: center;
-    color: white;
-    font-size: 24px;
-    margin-bottom: 10px;
-    font-family: 'Exo 2', sans-serif;
-}
-.line {
-    width: 80%;
-    height: 1px; /* Linha fina */
-    background-color: #00F778;
-    margin: 10px auto; 
-}
-.rectangular-box .line {
-    width: 80%;
-    height: 1px; /* Linha fina */
-    background-color: #00F778;
-    margin: 10px auto; 
-}
-
-.rectangular-box .text {
-    color: white;
-    font-size: 16px;
-    text-align: center;
-    font-family: 'Exo 2', sans-serif;
-}
-.container-perfil {
-    display: flex;
-    justify-content: space-between;
-    background-color: #0B3674;
-    padding: 20px;
-    margin-bottom: 60px;
-}
-
-.image-box {
-    width: 30%;
-    background-color: #0B3674;
-    text-align: center;
-    color: white;
-    border-radius: 5px;
-    margin-bottom: auto;
-}
-
-.image-box img {
-    width: 20%;
-    height: auto;
-    border-radius: 5px;
-}
-
-.image-box h3 {
-    margin: 10px 0;
-    font-size: 16px;
-}
-
-.image-box p {
-    font-size: 14px;
-    margin: 10px 0;
 }

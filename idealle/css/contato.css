@@ -142,7 +142,7 @@ body {
 }
 
 /* Media Query */
-@media (max-width: 1250px) {
+@media (max-width: 1200px) {
 
     .menu-toggle {
         display: flex;
@@ -158,8 +158,11 @@ body {
         display: none;
 
     }
+    .contact-form, .contact-info {
+        min-width: 300px;
+    }
 }
-@media (max-width: 870px) {
+@media (max-width: 800px) {
   
    .intro .image-content {
     display: none
@@ -202,24 +205,21 @@ body {
 .contact-header h2 {
     font-size: 36px;
     color: #00F778;
-    font-family: 'Exo 2', sans-serif;
 }
 
 .contact-header p {
     font-size: 18px;
-    font-family: 'Exo 2', sans-serif;
 }
 
 .contact-content {
     display: flex;
-    justify-content: space-between;
     gap: 20px;
     flex-wrap: wrap;
+    justify-content: center; /* Alinha horizontalmente ao centro */
 }
-
-.contact-info, .contact-form {
-    flex: 1;
-    min-width: 300px;
+.contact-form,
+.contact-info {
+    max-width: 500px;
     padding: 20px;
     background: rgba(0, 0, 0, 0.8);
     border-radius: 10px;

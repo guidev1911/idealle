@@ -362,7 +362,6 @@ header {
 
 .area-cartoes {
     font-family: Arial, sans-serif;
-    background-color: white;
     margin: 0;
     padding: 0;
     display: flex;
@@ -412,6 +411,7 @@ header {
     padding: 0;
     overflow: hidden; /* Remove a rolagem */
     position: relative; /* Necessário para que a div flutuante seja posicionada em relação ao body */
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.624);
 }
 
 .tec-container {
@@ -423,21 +423,18 @@ header {
 .tec-div-esquerda {
     width: 100%;
     height: 100%;
-    background-color: #dddddd;
-    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    background-color: rgb(255, 255, 255);
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.528);
     text-align: left; /* Alinha a imagem à direita */
     padding: 20px;
 }
 .tec-div-esquerda img {
-    width: 30%;
+    position: relative;
+    max-width: 570px;
     min-width: 500px;
     margin-top: 30px;
     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
 }
-.tec-div-esquerda img:hover {
-    transform: scale(1.1);
-}
-
 .tec-div-direita {
     width: 20%;
     height: 100%;
@@ -453,7 +450,7 @@ header {
     transition: opacity 1s ease-out;
 }
 .tec-div-direita-back {
-    background-color: #000;
+    background-color: #000000f0;
     width: 20%;
     height: 100%;
     position: absolute; /* Faz com que a div fique sobre a div branca */
@@ -461,7 +458,6 @@ header {
     right: 0;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 100%);
     padding: 200px 400px 0px 300px;
-    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
     transform: translateX(-4000vw); /* Começa fora da tela à esquerda */
     opacity: 0;
     transition: opacity 1s ease-out;
@@ -500,9 +496,72 @@ header {
 .tec-div-esquerda {
     font-size: 18px;
 }
+@media (max-width: 1390px) {
+    
+.tec-div-direita {
+    height: 40%;
+    background: linear-gradient(to bottom,rgba(0, 0, 0, 0.161), #0B3674);
+    position: absolute; /* Faz com que a div fique sobre a div branca */
+    top: 0;
+    right: 0;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 70%);
+    padding: 0px 300px 40px 100%;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    transform: translateY(-100vw); /* Começa fora da tela à esquerda */
+    opacity: 0;
+    transition: opacity 1s ease-out;
+}
+.tec-div-direita h2 {
+    width: 300px;
+    text-align: start; 
+}
+.tec-div-direita p{
+    width: 300px;
+    text-align: start; 
+}
+.tec-div-direita-back {
+    background-color: #000;
+    height: 50%;
+    position: absolute; /* Faz com que a div fique sobre a div branca */
+    top: 0;
+    right: 0;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 60%);
+    padding: 0px 300px 40px 100%;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    transform: translateY(-4000vw); /* Começa fora da tela à esquerda */
+    opacity: 0;
+    transition: opacity 1s ease-out;
+}
+.tec-div-esquerda img {
+    position: absolute;
+    bottom: 0; 
+    height: 50%;
+}    
+@keyframes moverDiv {
+    0% {
+        transform: translateY(-100vw); /* Começa fora da tela à esquerda */
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(50vw); /* Movimento rápido para o meio */
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0); /* Movimento lento para a posição final */
+        opacity: 1;
+    }
+}
+.tec-div-direita.show {
+    animation: moverDiv 2s ease-out;
+}
+.tec-div-direita-back.show {
+    animation: moverDiv 2.5s ease-out;
+}
+.tec-div-esquerda img.show {
+    animation: moverDiv 4s alternate;
+}
 
-
-
+}
 
 .container-xxl {
     padding: 5rem 0;
@@ -682,7 +741,7 @@ header {
     gap: 20px;
     padding: 20px;
     width: 100%;
-    animation: scroll 30s linear infinite;
+    animation: scroll 25s linear infinite;
 }
 
 .testimonial {
@@ -789,7 +848,7 @@ header {
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
     max-width: 500px;
     padding: 20px;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(6, 6, 6, 0.8);
     border-radius: 10px;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
 }
@@ -863,15 +922,25 @@ header {
     width: 100%;
     height: 200px;
     position: relative;
+    overflow: hidden;
 }
 
 .wave-container svg {
-    position: relative;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     transform: rotate(180deg); /* Inverte a onda para o topo */
+}
+
+.wave-back {
+    z-index: 1; /* Camada inferior */
+    top: 20px;  /* Ajusta a posição para sobrepor as ondas */
+}
+
+.wave-front {
+    z-index: 2; /* Camada superior */
 }
 
 .footer {

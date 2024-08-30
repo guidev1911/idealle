@@ -82,7 +82,7 @@ header {
 }
 .area-btn {
     padding: 15px 1px;
-    margin-top: 80pxpx;
+    margin-top: 60px;
 }
 .fale-conosco-btn {
     background-color: #00F778;
@@ -133,12 +133,6 @@ header {
 
     .header-text h1::after {
         display: none; /* Remove a seta em telas menores */
-    }
-    .header-text h1{
-        position: absolute;
-    }
-    .header-text p{
-        position: relative;
     }
 }
 /* Estilos do fundo animado */

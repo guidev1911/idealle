@@ -270,3 +270,26 @@ document.addEventListener('scroll', function() {
         divAnimada.classList.add('show');
     }
 });
+
+// Slider para alternar imagens
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slider img');
+
+function changeSlide() {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add('active');
+}
+
+setInterval(changeSlide, 4000);
+
+// Animação de scroll
+window.addEventListener('scroll', function () {
+    const containerInformacoes = document.querySelector('.container-informacoes');
+    const position = containerInformacoes.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+
+    if (position < windowHeight) {
+        containerInformacoes.classList.add('window-scrolled');
+    }
+});

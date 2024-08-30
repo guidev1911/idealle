@@ -357,7 +357,7 @@ header {
 .card.visible {
     opacity: 1;
     transform: translateX(0);
-    animation: slideInFromLeft 1s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+    animation: slideInFromLeft 3s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
 }
 
 .area-cartoes {
@@ -407,6 +407,7 @@ header {
 }
 
 .body-tec {
+    height: 100vh;
     margin: 0;
     padding: 0;
     overflow: hidden; /* Remove a rolagem */
@@ -844,7 +845,7 @@ header {
 .contact-form,
 .contact-info {
     opacity: 0;
-    transform: translateX(-100px); /* Inicia fora da tela, à esquerda */
+    transform: translateX(-1000px); /* Inicia fora da tela, à esquerda */
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
     max-width: 500px;
     padding: 20px;
@@ -853,7 +854,7 @@ header {
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
 }
 .contact-form {
-    transform: translateX(100px); /* Inicia fora da tela, à direita */
+    transform: translateX(1000px); /* Inicia fora da tela, à direita */
 }
 
 .visible {

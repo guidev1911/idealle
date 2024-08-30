@@ -569,7 +569,7 @@ header {
 .tec-div-esquerda img {
     position: relative;
     max-width: 570px;
-    min-width: 500px;
+    min-width: 100px;
     margin-top: 30px;
     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
 }
@@ -637,7 +637,7 @@ header {
 @media (max-width: 1390px) {
     
 .tec-div-direita {
-    height: 40%;
+    height: 50%;
     background: linear-gradient(to bottom,rgba(0, 0, 0, 0.161), #0B3674);
     position: absolute; /* Faz com que a div fique sobre a div branca */
     top: 0;
@@ -659,7 +659,7 @@ header {
 }
 .tec-div-direita-back {
     background-color: #000;
-    height: 50%;
+    height: 60%;
     position: absolute; /* Faz com que a div fique sobre a div branca */
     top: 0;
     right: 0;
@@ -673,7 +673,7 @@ header {
 .tec-div-esquerda img {
     position: absolute;
     bottom: 0; 
-    height: 50%;
+    height: 40%;
 }    
 @keyframes moverDiv {
     0% {

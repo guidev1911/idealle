@@ -134,11 +134,11 @@ header {
     .header-text h1::after {
         display: none; /* Remove a seta em telas menores */
     }
-    .fale-conosco-btn {
-       position: absolute;
-    }
-    .header-text p {
+    .header-text h1{
         position: absolute;
+    }
+    .header-text p{
+        position: relative;
     }
 }
 /* Estilos do fundo animado */

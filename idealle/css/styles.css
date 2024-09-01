@@ -348,7 +348,6 @@ header {
 }
 
 .section-conheca {
-    height: 100vh;
     padding: 50px 20px;
     background-color: white;
     color: #0B3674;
@@ -453,16 +452,17 @@ header {
     left: 0;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1025px) {
     .container-informacoes {
         flex-direction: column;
         align-items: center;
     }
     .informacao-esquerda,
     .informacao-direita {
-        width: 100%; /* Para ocupar toda a largura em dispositivos móveis */
+        width: 100%; 
+        max-width: 600px;/* Para ocupar toda a largura em dispositivos móveis */
     }
-    .slider {
+    .slider { 
         height: 210px; 
     }
     .subtitulo {
@@ -632,9 +632,10 @@ header {
     font-size: 18px;
 }
 .tec-div-esquerda {
+    
     font-size: 18px;
 }
-@media (max-width: 1390px) {
+@media (max-width: 1025px) {
     
 .tec-div-direita {
     height: 50%;

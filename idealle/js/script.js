@@ -293,3 +293,46 @@ window.addEventListener('scroll', function () {
         containerInformacoes.classList.add('window-scrolled');
     }
 });
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.3
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                const index = Array.from(entry.target.parentNode.children).indexOf(entry.target);
+                if (index % 2 === 0) {
+                    entry.target.classList.add('show-from-left');
+                } else {
+                    entry.target.classList.add('show-from-right');
+                }
+                observer.unobserve(entry.target); // Stop observing after animation starts
+            }
+        });
+    }, options);
+
+    document.querySelectorAll('.solucao-item').forEach(item => {
+        observer.observe(item);
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const text = document.querySelector('.frase');
+  
+    function handleScroll() {
+      const textPosition = text.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+  
+      if (textPosition < windowHeight * 0.75) { // Ajuste o valor conforme necessário
+        text.classList.add('FraseVisible');
+      }
+    }
+  
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Verifica a posição inicial
+  });

@@ -163,7 +163,7 @@ header {
     transition: background-color 0.3s ease; /* Transição suave */
 }
 .menu.scrolled {
-    background-color: #0B3674;
+    background: linear-gradient(135deg, #000000 0%, #0B3674 100%);
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
 }
 
@@ -296,7 +296,7 @@ header {
         top: 20px;
         background-color: transparent;
         border: none;
-        color: white;
+        color: #FFFFFF;
         font-size: 24px;
         cursor: pointer;
         animation: slideIn 0.5s ease-out forwards;
@@ -311,7 +311,9 @@ header {
     .contact-form, .contact-info {
         min-width: 300px;
     }
-    
+    .submenu {
+        display: none;
+    }
 }
 @media (min-width: 800px) {
   
@@ -388,13 +390,14 @@ header {
 }
 
 .informacao-direita {
-    transform: translateX(-1000px);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.73), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transform:translateY(+1000px);
 }
 
 .informacao-esquerda {
     text-align: left; /* Alinhamento à esquerda */
     background-color: white;
+    transform:translateX(+1000px);
 }
 
 .subtitulo {
@@ -484,7 +487,156 @@ header {
     opacity: 1;
 }
 
+body {
+    background-color: #ffffff;
+}
 
+.nossas-solucoes-container {
+    text-align: center;
+    padding: 40px 0;
+    background-color: #ffffff;
+}
+
+.titulo-solucoes {
+    font-size: 36px;
+    font-weight: 400;
+    font-size: 2.5rem;
+    color: #0B3674;
+    margin-bottom: 30px;
+}
+
+.solucoes-espaco {
+    background: linear-gradient(135deg, #000000 0%, #0B3674 100%);
+    padding: 40px;
+    border-radius: 25px; /* Aumenta o arredondamento das bordas da parte azul */
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1000px; /* Ajusta o tamanho para ajudar na centralização */
+    margin: 0 auto; /* Centraliza a div azul */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.89); /* Adiciona uma sombra suave */
+}
+
+@media (max-width: 768px) {
+    .solucoes-espaco {
+        display: block; /* Altera o display para block para empilhar os itens */
+    }
+    
+    .solucao-item {
+        min-width: 260px;
+        margin-bottom: 20px; /* Adiciona um espaçamento entre os itens */  
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .solucao-item:last-child {
+        margin-bottom: 0; /* Remove o espaçamento inferior do último item */
+    }
+}
+
+.solucao-item {
+    background: #ffffff;
+    padding: 20px;
+    width: 30%;
+    box-shadow: 0 4px 8px rgb(0, 0, 0);
+    border-radius: 15px; /* Aumenta o arredondamento das bordas das divs internas */
+    transition: transform 0.3s ease;
+}
+
+.solucao-item:hover {
+    box-shadow: 0 4px 8px #00F778;
+}
+
+.imagem-solucao {
+    width: 100%;
+    height: auto;
+    border-radius: 15px 15px 0 0; /* Ajusta o arredondamento das bordas superiores */
+    margin-bottom: 15px;
+}
+
+.titulo-solucao {
+    font-size: 1.5em;
+    color: #003366;
+    margin-bottom: 10px;
+}
+/*
+.titulo-solucao::after {
+    content: "";
+    display: block;
+    width: 60%;
+    height: 4px;
+    background-color: #00F778;
+    margin: 10px auto 0 auto;
+    border-radius: 2px;
+}
+*/
+.descricao-solucao {
+    font-size: 1em;
+    color: #666666;
+    line-height: 1.6em;
+}
+/* Definindo as animações de entrada */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-1000px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(1000px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Adiciona a classe de animação quando a div está visível */
+.solucoes-espaco .solucao-item {
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
+
+.solucoes-espaco .solucao-item.show-from-left {
+    animation: slideInLeft 1.2s forwards;
+}
+
+.solucoes-espaco .solucao-item.show-from-right {
+    animation: slideInRight 1.2s forwards;
+}
+
+.frase-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh; /* Ajuste a altura conforme necessário */
+    background: linear-gradient(135deg, #000000 0%, #0B3674 100%);
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.624);
+}
+
+.frase {
+    color: #FFFFFF; /* Fonte branca */
+    font-size: 36px; /* Ajuste o tamanho da fonte conforme necessário */
+    font-weight: bold; /* Opcional, para deixar a fonte em negrito */
+    margin: 0; /* Remove a margem padrão */
+    padding: 30px;
+    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.671);
+    opacity: 0;
+    transform: translateY(-200px);
+    transition: opacity 0.5s ease-out, transform 1.5s ease-out;
+}
+.frase.FraseVisible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
 .card {
     opacity: 0; 
@@ -576,7 +728,7 @@ header {
 .tec-div-direita {
     width: 20%;
     height: 100%;
-    background: linear-gradient(to top right,black, #0B3674);
+    background: linear-gradient(135deg, #000000 0%, #0B3674 100%);
     position: absolute; /* Faz com que a div fique sobre a div branca */
     top: 0;
     right: 0;
@@ -635,7 +787,7 @@ header {
     
     font-size: 18px;
 }
-@media (max-width: 1025px) {
+@media (max-width: 1350px) {
     
 .tec-div-direita {
     height: 50%;

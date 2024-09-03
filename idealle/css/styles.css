@@ -15,7 +15,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
+    color: red;
     text-align: center;
     padding: 2rem; /* Adiciona um pouco de espaçamento ao redor */
 }

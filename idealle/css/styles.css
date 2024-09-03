@@ -5,7 +5,7 @@ body {
     margin: 0;
     font-family: 'Exo 2', sans-serif;
     color: #fff;
-    overflow-x: hidden; 
+    overflow-x: hidden;
 }
 
 header {
@@ -108,6 +108,12 @@ header {
 }
 
 @media (max-width: 768px) {
+    body {
+        margin: 0;
+        font-family: 'Exo 2', sans-serif;
+        color: #fff;
+        overflow-x: hidden;
+    }
     .header-content {
         flex-direction: column;
         text-align: left; /* Alinha o texto à esquerda em telas menores */
@@ -137,7 +143,7 @@ header {
 }
 /* Estilos do fundo animado */
 #starfield {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -282,6 +288,13 @@ header {
 /* Media Query */
 @media (max-width: 1200px) {
 
+    body {
+        margin: 0;
+        font-family: 'Exo 2', sans-serif;
+        color: #fff;
+        overflow-x: hidden;
+    }
+
     .card-container {
        display: none;
     }
@@ -311,6 +324,12 @@ header {
     }
 }
 @media (min-width: 800px) {
+    body {
+        margin: 0;
+        font-family: 'Exo 2', sans-serif;
+        color: #fff;
+        overflow-x: hidden;
+    }
   
    .intro .image-content {
         display: none
@@ -451,6 +470,12 @@ header {
 }
 
 @media (max-width: 1025px) {
+    body {
+        margin: 0;
+        font-family: 'Exo 2', sans-serif;
+        color: #fff;
+        overflow-x: hidden;
+    }
     .container-informacoes {
         flex-direction: column;
         align-items: center;
@@ -516,6 +541,12 @@ body {
 }
 
 @media (max-width: 768px) {
+    body {
+        margin: 0;
+        font-family: 'Exo 2', sans-serif;
+        color: #fff;
+        overflow-x: hidden;
+    }
     .solucoes-espaco {
         display: block; /* Altera o display para block para empilhar os itens */
     }
@@ -791,6 +822,13 @@ body {
     font-size: 18px;
 }
 @media (max-width: 1350px) {
+
+    body {
+        margin: 0;
+        font-family: 'Exo 2', sans-serif;
+        color: #fff;
+        overflow-x: hidden;
+    }    
     
 .tec-div-direita {
     height: 50%;
@@ -1011,6 +1049,7 @@ body {
         max-width: 100%;
         margin-bottom: 2rem;
     }
+    
 }
 
 .our-clients {

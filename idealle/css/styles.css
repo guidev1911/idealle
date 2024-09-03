@@ -15,7 +15,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: red;
+    color: #fff;
     text-align: center;
     padding: 2rem; /* Adiciona um pouco de espaçamento ao redor */
 }
@@ -419,7 +419,7 @@ header {
     font-size: 22px;
     margin-bottom: 10px;
     color: white;
-    background-color: #0B3674;
+    background: linear-gradient(135deg, #000000 0%, #0B3674 100%);
     border-radius: 20px;
     padding: 20px;
     margin-right: 300px;
@@ -536,7 +536,7 @@ body {
     justify-content: space-around;
     flex-wrap: wrap;
     gap: 30px;
-    max-width: 1000px; /* Ajusta o tamanho para ajudar na centralização */
+    max-width: 1200px; /* Ajusta o tamanho para ajudar na centralização */
     margin: 0 auto; /* Centraliza a div azul */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.89); /* Adiciona uma sombra suave */
 }
@@ -571,6 +571,7 @@ body {
     box-shadow: 0 4px 8px rgb(0, 0, 0);
     border-radius: 15px; /* Aumenta o arredondamento das bordas das divs internas */
     transition: transform 0.3s ease;
+    box-sizing: border-box;
 }
 
 .solucao-item:hover {
@@ -642,6 +643,63 @@ body {
     animation: slideInRight 1.2s forwards;
 }
 
+
+.why-choose-us {
+    padding: 50px 20px;
+    color: #fff;
+    text-align: center;
+    margin: 20px auto;
+    max-width: 1200px;
+    border-color: #FFFFFF;
+  }
+  
+  .why-choose-us-title {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #00F778;
+    font-family: 'Exo 2', sans-serif;
+  }
+  
+  .why-choose-us-content {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .why-choose-us-item {
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+    padding: 20px;
+    background: linear-gradient(135deg, #000000 0%, #0B3674 100%);
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-color: white;
+  }
+  
+  .why-choose-us-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: #00F778;
+  }
+  
+  .why-choose-us-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-family: 'Exo 2', sans-serif;
+  }
+  
+  .why-choose-us-item p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #ddd;
+  }
 .frase-container {
     display: flex;
     justify-content: center;
@@ -680,10 +738,6 @@ body {
 }
 
 .area-cartoes {
-    background-image: url('/idealle/img/wallpaperTec.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
     width: 100%;
     font-family: Arial, sans-serif;
     margin: 0;

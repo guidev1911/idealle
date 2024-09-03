@@ -138,18 +138,6 @@ function createStars() {
 
 createStars();
 
-document.addEventListener("scroll", function() {
-    const cards = document.querySelectorAll(".card");
-    const triggerBottom = window.innerHeight * 0.9; // Ajuste o valor conforme necessário
-
-    cards.forEach(card => {
-        const cardTop = card.getBoundingClientRect().top;
-
-        if (cardTop < triggerBottom) {
-            card.classList.add("visible");
-        }
-    });
-});
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
@@ -322,6 +310,16 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+    const items = document.querySelectorAll('.why-choose-us-item');
+    items.forEach((item, index) => {
+      setTimeout(() => {
+        item.style.opacity = 1;
+        item.style.transform = 'translateY(0)';
+      }, index * 200);
+    });
+  });
+
 document.addEventListener('DOMContentLoaded', function() {
     const text = document.querySelector('.frase');
   
@@ -337,5 +335,6 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // Verifica a posição inicial
   });
+
 
   

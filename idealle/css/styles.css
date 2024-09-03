@@ -218,10 +218,6 @@ header {
     background: #00F778;
     transition: width 0.3s ease;
 }
-#home::after {
-    width: 100%; /* Linha sempre visível */
-    transition: none; /* Remove a animação */
-}
 
 .menu ul li a:hover::after {
     width: 100%;
@@ -651,6 +647,11 @@ body {
 }
 
 .area-cartoes {
+    background-image: url('/idealle/img/wallpaperTec.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;

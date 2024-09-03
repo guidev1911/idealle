@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
     onScroll();
 });
 
+
 document.addEventListener('DOMContentLoaded', function() {
     const menuButton = document.getElementById('toggle-class');
     const submenu = document.getElementById('submenu');
@@ -336,3 +337,5 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // Verifica a posição inicial
   });
+
+  

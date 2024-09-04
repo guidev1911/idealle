@@ -310,15 +310,53 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-    const items = document.querySelectorAll('.why-choose-us-item');
-    items.forEach((item, index) => {
-      setTimeout(() => {
-        item.style.opacity = 1;
-        item.style.transform = 'translateY(0)';
-      }, index * 200);
+
+document.addEventListener('DOMContentLoaded', function () {
+    const sobreHistoriaTexto = document.querySelector('.sobre-historia-texto');
+
+    function handleScroll() {
+        const elementPosition = sobreHistoriaTexto.getBoundingClientRect().top;
+        const viewportHeight = window.innerHeight;
+
+        if (elementPosition < viewportHeight) {
+            sobreHistoriaTexto.classList.add('animar-direita');
+            window.removeEventListener('scroll', handleScroll);
+        }
+    }
+
+    window.addEventListener('scroll', handleScroll);
+});
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const title = document.querySelector('.sobre-title');
+    const content = document.querySelector('.sobre-content');
+
+    // Animação de fade-in para o título e o conteúdo
+    title.style.opacity = 0;
+    content.style.opacity = 0;
+
+    setTimeout(() => {
+        title.style.transition = 'opacity 1.5s ease-in-out';
+        title.style.opacity = 1;
+    }, 500);
+
+    setTimeout(() => {
+        content.style.transition = 'opacity 2s ease-in-out';
+        content.style.opacity = 1;
+    }, 1000);
+});
+
+document.querySelectorAll('.faq-pergunta').forEach((item) => {
+    item.addEventListener('click', () => {
+        const resposta = item.nextElementSibling;
+        
+        if (resposta.style.display === 'none' || resposta.style.display === '') {
+            resposta.style.display = 'block';
+        } else {
+            resposta.style.display = 'none';
+        }
     });
-  });
+});
 
 document.addEventListener('DOMContentLoaded', function() {
     const text = document.querySelector('.frase');
@@ -335,6 +373,38 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // Verifica a posição inicial
   });
+  
 
+  document.querySelectorAll('.faq-pergunta').forEach((item) => {
+    item.addEventListener('click', () => {
+        const resposta = item.nextElementSibling;
+        
+        if (resposta.style.display === 'none' || resposta.style.display === '') {
+            resposta.style.display = 'block';
+        } else {
+            resposta.style.display = 'none';
+        }
+    });
+});
+
+  document.querySelectorAll('.faq-pergunta').forEach((item) => {
+    item.addEventListener('click', () => {
+        // Adiciona a animação de chacoalhar
+        item.classList.add('shake');
+
+        // Remove a animação após ela terminar para permitir a reexecução
+        setTimeout(() => {
+            item.classList.remove('shake');
+        }, 500);
+
+        const resposta = item.nextElementSibling;
+        
+        if (resposta.style.display === 'none' || resposta.style.display === '') {
+            resposta.style.display = 'block';
+        } else {
+            resposta.style.display = 'none';
+        }
+    });
+});
 
   

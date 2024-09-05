@@ -1,0 +1,144 @@
+.section-conheca {
+    padding: 50px 20px;
+    background-color: white;
+    color: #0B3674;
+    text-align: center;
+}
+
+.titulo-conheca {
+    font-size: 36px;
+    font-weight: 400;
+    font-size: 2.5rem;
+    color: #0B3674;
+    margin-bottom: 30px;
+}
+
+.paragrafo-conheca {
+    font-size: 18px;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    color: #6c757d;
+}
+
+.container-informacoes {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.informacao-esquerda,
+.informacao-direita {
+    width: 600px; /* Tamanho fixo para as divs */
+    padding: 10px;
+    background-color: white;
+    border-radius: 30px;
+    opacity: 0;
+    transition: all 0.6s ease-in-out;
+}
+
+.informacao-direita {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.73), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transform:translateY(+1000px);
+    width: 40%;
+}
+
+.informacao-esquerda {
+    text-align: left; /* Alinhamento à esquerda */
+    background-color: white;
+    transform:translateX(+1000px);
+}
+
+.subtitulo {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: white;
+    background: linear-gradient(135deg, #000000 0%, #0B3674 100%);
+    border-radius: 20px;
+    padding: 20px;
+    margin-right: 300px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.73), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.titulo-maior {
+    font-size: 2.5rem;
+    color: #0B3674;
+    margin-bottom: 30px;
+}
+
+.lista-beneficios {
+    list-style: none;
+    padding: 0;
+    color: #6c757d;
+}
+
+.lista-beneficios li {
+    margin-bottom: 10px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}
+
+.icone-correto {
+    color: #00F778;
+    margin-right: 10px;
+}
+
+.slider {
+    position: relative;
+    overflow: hidden;
+    height: 350px; /* Aumentando a área de imagens */
+    border-radius: 25px;
+}
+
+.slider img {
+    width: 100%;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    transition: left 0.6s ease-in-out;
+}
+
+.slider img.active {
+    left: 0;
+}
+
+@media (max-width: 1025px) {
+    body {
+        margin: 0;
+        font-family: 'Exo 2', sans-serif;
+        color: #fff;
+        overflow-x: hidden;
+    }
+    .container-informacoes {
+        flex-direction: column;
+        align-items: center;
+    }
+    .informacao-esquerda,
+    .informacao-direita {
+        width: 100%; 
+        max-width: 600px;/* Para ocupar toda a largura em dispositivos móveis */
+    }
+    .slider { 
+        height: 210px; 
+    }
+    .subtitulo {
+        min-width: 250px;
+        margin-bottom: 10px;
+        padding: 20px;
+        margin-right: 300px;
+    }
+}
+
+/* Animações de scroll */
+.window-scrolled .informacao-esquerda {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.window-scrolled .informacao-direita {
+    transform: translateX(0);
+    opacity: 1;
+}

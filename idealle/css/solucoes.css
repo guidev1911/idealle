@@ -1,0 +1,128 @@
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-1000px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(1000px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+.nossas-solucoes-container {
+    text-align: center;
+    padding: 40px 0;
+    background-color: #ffffff;
+}
+
+.titulo-solucoes {
+    font-size: 36px;
+    font-weight: 400;
+    font-size: 2.5rem;
+    color: #0B3674;
+    margin-bottom: 30px;
+}
+
+.solucoes-espaco {
+    background: linear-gradient(135deg, #000000 0%, #0B3674 100%);
+    padding: 40px;
+    border-radius: 25px; /* Aumenta o arredondamento das bordas da parte azul */
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1200px; /* Ajusta o tamanho para ajudar na centralização */
+    margin: 0 auto; /* Centraliza a div azul */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.89); /* Adiciona uma sombra suave */
+}
+
+@media (max-width: 768px) {
+    body {
+        margin: 0;
+        font-family: 'Exo 2', sans-serif;
+        color: #fff;
+        overflow-x: hidden;
+    }
+    .solucoes-espaco {
+        display: block; /* Altera o display para block para empilhar os itens */
+    }
+    
+    .solucao-item {
+        min-width: 260px;
+        margin-bottom: 20px; /* Adiciona um espaçamento entre os itens */  
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .solucao-item:last-child {
+        margin-bottom: 0; /* Remove o espaçamento inferior do último item */
+    }
+}
+
+.solucao-item {
+    background: #ffffff;
+    padding: 20px;
+    width: 30%;
+    box-shadow: 0 4px 8px rgb(0, 0, 0);
+    border-radius: 15px; /* Aumenta o arredondamento das bordas das divs internas */
+    transition: transform 0.3s ease;
+    box-sizing: border-box;
+}
+
+.solucao-item:hover {
+    box-shadow: 0 4px 8px #00F778;
+}
+
+.imagem-solucao {
+    width: 100%;
+    height: auto;
+    border-radius: 15px 15px 0 0; /* Ajusta o arredondamento das bordas superiores */
+}
+
+.titulo-solucao {
+    font-size: 1.5em;
+    color: #003366;
+    margin-bottom: 10px;
+}
+/*
+.titulo-solucao::after {
+    content: "";
+    display: block;
+    width: 60%;
+    height: 4px;
+    background-color: #00F778;
+    margin: 10px auto 0 auto;
+    border-radius: 2px;
+}
+*/
+.descricao-solucao {
+    font-size: 1em;
+    color: #666666;
+    line-height: 1.6em;
+}
+/* Definindo as animações de entrada */
+
+
+/* Adiciona a classe de animação quando a div está visível */
+.solucoes-espaco .solucao-item {
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
+
+.solucoes-espaco .solucao-item.show-from-left {
+    animation: slideInLeft 1.2s forwards;
+}
+
+.solucoes-espaco .solucao-item.show-from-right {
+    animation: slideInRight 1.2s forwards;
+}

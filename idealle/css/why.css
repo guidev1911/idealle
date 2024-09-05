@@ -1,0 +1,56 @@
+.why-choose-us {
+    padding: 50px 20px;
+    color: #fff;
+    text-align: center;
+    margin: 20px auto;
+    max-width: 1200px;
+    border-color: #FFFFFF;
+}
+
+.why-choose-us-title {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #00F778;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.why-choose-us-content {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.why-choose-us-item {
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+    padding: 20px;
+     border: 2px solid #fff;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-color: white;
+}
+
+.why-choose-us-item:hover {
+    box-shadow: 0 8px 15px #00F778;
+}
+
+.icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: #00F778;
+}
+
+.why-choose-us-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.why-choose-us-item p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #ddd;
+}
+

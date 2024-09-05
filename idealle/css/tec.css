@@ -1,0 +1,167 @@
+@keyframes moverDiv {
+    0% {
+        transform: translateY(-100vw); /* Começa fora da tela à esquerda */
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(50vw); /* Movimento rápido para o meio */
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0); /* Movimento lento para a posição final */
+        opacity: 1;
+    }
+}
+@keyframes moverDiv {
+    0% {
+        transform: translateX(-100vw); /* Começa fora da tela à esquerda */
+        opacity: 0;
+    }
+    50% {
+        transform: translateX(50vw); /* Movimento rápido para o meio */
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(0); /* Movimento lento para a posição final */
+        opacity: 1;
+    }
+}
+.body-tec {
+    height: 100vh;
+    padding: 0;
+    overflow: hidden; /* Remove a rolagem */
+    position: relative; /* Necessário para que a div flutuante seja posicionada em relação ao body */
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.624);
+    overflow-x: hidden; 
+    margin: 0;
+}
+
+.tec-container {
+    position: relative; /* Necessário para que a div azul flutue em relação a este contêiner */
+    width: 100vw;
+    height: 100vh;
+}
+
+.tec-div-esquerda {
+    height: 100vh;
+    background-color: rgb(216, 205, 205);
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.528);
+    text-align: left; /* Alinha a imagem à direita */
+    padding: 20px;
+}
+.tec-div-esquerda img {
+    position: relative;
+    max-width: 570px;
+    min-width: 100px;
+    margin-top: 30px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+.tec-div-direita {
+    width: 20%;
+    height: 100%;
+    background: linear-gradient(135deg, #000000 0%, #0B3674 100%);
+    position: absolute; /* Faz com que a div fique sobre a div branca */
+    top: 0;
+    right: 0;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 20% 100%);
+    padding: 200px 250px 0px 300px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    transform: translateX(-100vw); /* Começa fora da tela à esquerda */
+    opacity: 0;
+    transition: opacity 1s ease-out;
+}
+.tec-div-direita-back {
+    background-color: #000000;
+    width: 20%;
+    height: 100%;
+    position: absolute; /* Faz com que a div fique sobre a div branca */
+    top: 0;
+    right: 0;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 100%);
+    padding: 200px 400px 0px 300px;
+    transform: translateX(-4000vw); /* Começa fora da tela à esquerda */
+    opacity: 0;
+    transition: opacity 1s ease-out;
+    
+}
+
+.tec-div-direita.show {
+    animation: moverDiv 2s ease-out;
+}
+.tec-div-direita-back.show {
+    animation: moverDiv 2.5s ease-out;
+}
+.tec-div-esquerda img.show {
+    animation: moverDiv 4s alternate;
+}
+.tec-div-direita h2{
+    font-size: 36px;
+    color: #00F778;
+}
+.tec-div-direita p {
+    font-size: 18px;
+}
+.tec-div-esquerda {
+    
+    font-size: 18px;
+}
+@media (max-width: 1350px) {
+
+    body {
+        margin: 0;
+        font-family: 'Exo 2', sans-serif;
+        color: #fff;
+        overflow-x: hidden;
+    }    
+    
+.tec-div-direita {
+    height: 50%;
+    background: linear-gradient(to bottom,rgba(0, 0, 0, 0.161), #0B3674);
+    position: absolute; /* Faz com que a div fique sobre a div branca */
+    top: 0;
+    right: 0;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 70%);
+    padding: 0px 300px 40px 100%;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    transform: translateY(-100vw); /* Começa fora da tela à esquerda */
+    opacity: 0;
+    transition: opacity 1s ease-out;
+}
+.tec-div-direita h2 {
+    width: 300px;
+    text-align: start; 
+}
+.tec-div-direita p{
+    width: 355px;
+    text-align: start; 
+}
+.tec-div-direita-back {
+    background-color: #000;
+    height: 60%;
+    position: absolute; /* Faz com que a div fique sobre a div branca */
+    top: 0;
+    right: 0;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 60%);
+    padding: 0px 300px 40px 100%;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    transform: translateY(-4000vw); /* Começa fora da tela à esquerda */
+    opacity: 0;
+    transition: opacity 1s ease-out;
+}
+.tec-div-esquerda img {
+    position: absolute;
+    bottom: 0; 
+    height: 40%;
+}    
+
+.tec-div-direita.show {
+    animation: moverDiv 2s ease-out;
+}
+.tec-div-direita-back.show {
+    animation: moverDiv 2.5s ease-out;
+}
+.tec-div-esquerda img.show {
+    animation: moverDiv 4s alternate;
+}
+
+}

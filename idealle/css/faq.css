@@ -1,0 +1,93 @@
+.frase-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh; /* Ajuste a altura conforme necessário */
+    background: linear-gradient(135deg, #000000 0%, #0B3674 100%);
+    box-shadow: 0 20px 20px rgba(115, 111, 111, 0.624);
+}
+
+.frase {
+    color: #FFFFFF; /* Fonte branca */
+    font-size: 36px; /* Ajuste o tamanho da fonte conforme necessário */
+    font-weight: bold; /* Opcional, para deixar a fonte em negrito */
+    margin: 0; /* Remove a margem padrão */
+    padding: 30px;
+    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.671);
+    opacity: 0;
+    transform: translateY(-200px);
+    transition: opacity 0.5s ease-out, transform 1.5s ease-out;
+}
+.frase.FraseVisible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+.faq-background {
+    width: 100%;
+    height: auto;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 30px;
+    background-color: white; /* Fundo branco */
+    min-height: 570px;
+}
+.faq-container {
+    max-width: 750px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 30px;
+    margin-bottom: 0;
+    margin-top: 90px;
+    background-color: white; /* Fundo branco */
+    border: 2px solid #0B3674; /* Borda branca ao redor da div */
+    border-radius: 90px 0px 60px 0px;
+}
+
+.faq-titulo {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #0B3674;
+}
+
+/* Estilo das perguntas */
+.faq-pergunta {
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #0B3674;
+    color: white;
+    padding: 15px;
+    cursor: pointer;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.faq-pergunta:hover {
+    background-color: #00F778;
+}
+
+/* Estilo das respostas */
+.faq-resposta {
+    font-size: 16px;
+    background-color: #c8c8c8; /* Fundo claro para a resposta */
+    color: #292929;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: none;
+    transition: max-height 0.3s ease;
+}
+/* Animação de chacoalhar */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+.faq-pergunta.shake {
+    animation: shake 0.5s ease;
+}

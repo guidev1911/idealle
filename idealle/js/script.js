@@ -194,24 +194,6 @@ setInterval(moveCarousel, 3000); // Muda de slide a cada 3 segundos
 
 
 
-document.addEventListener('DOMContentLoaded', function () {
-    const teamItems = document.querySelectorAll('.team-item');
-
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, {
-        threshold: 0.1
-    });
-
-    teamItems.forEach(item => {
-        observer.observe(item);
-    });
-});
-
 document.addEventListener("DOMContentLoaded", function() {
     const animatedDiv = document.querySelector('.text-center');
 
@@ -259,6 +241,33 @@ document.addEventListener('scroll', function() {
         divAnimada.classList.add('show');
     }
 });
+
+let currentIndex = 0;
+const cards = document.querySelectorAll('.team-card');
+
+function updateHighlight() {
+  cards.forEach((card, index) => {
+    card.classList.remove('highlight');
+    if (index === currentIndex) {
+      card.classList.add('highlight');
+    }
+  });
+}
+
+function nextSlide() {
+  currentIndex = (currentIndex + 1) % cards.length;
+  document.querySelector('.team-container').style.transform = `translateX(-${currentIndex * 270}px)`;
+  updateHighlight();
+}
+
+function prevSlide() {
+  currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+  document.querySelector('.team-container').style.transform = `translateX(-${currentIndex * 270}px)`;
+  updateHighlight();
+}
+
+window.onload = updateHighlight;
+
 
 // Slider para alternar imagens
 let currentSlide = 0;
@@ -405,6 +414,32 @@ document.addEventListener('DOMContentLoaded', function() {
             resposta.style.display = 'none';
         }
     });
+});
+
+const leftArrow = document.querySelector('.left-arrow');
+const rightArrow = document.querySelector('.right-arrow');
+const carouselInner = document.querySelector('.carousel-inner');
+const itemWidthTeam = document.querySelector('.carousel-item').offsetWidth;
+const gap = 20; // Ajuste o gap entre os itens, se necessário
+let currentIndexTeam = 0;
+
+function updateCarousel() {
+    const offset = -(currentIndexTeam * (itemWidthTeam + gap));
+    carouselInner.style.transform = `translateX(${offset}px)`;
+}
+
+leftArrow.addEventListener('click', () => {
+    if (currentIndexTeam > 0) {
+        currentIndexTeam--;
+        updateCarousel();
+    }
+});
+
+rightArrow.addEventListener('click', () => {
+    if (currentIndexTeam < carouselInner.children.length - 1) {
+        currentIndexTeam++;
+        updateCarousel();
+    }
 });
 
   

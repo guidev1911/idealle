@@ -1,151 +1,131 @@
-@keyframes scaleUp {
-    from {
-        transform: scale(0.2);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-.container-xxl {
-    padding: 5rem 0;
-}
-
-.text-center {
-    max-width: 600px;
-    margin: 0 auto 2rem auto;
-    text-align: center;
-    opacity: 0; /* Inicialmente invisível */
-    transform: translateY(-100px); /* Começa acima da posição final */
-    transition: opacity 0.5s ease-out, transform 1.5s ease-out; 
-    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
-}
-
 .show {
     opacity: 1;
     transform: translateY(0); /* Move para a posição final */
 }
-
-.text-center p {
-    display: block;
-    margin: 0 auto 1rem auto;
+  
+.body-team {
+    margin: 0;
+    padding: 0;
+    height: 600px;
 }
 
-.text-center h1 {
-    font-size: 36px;
-    color: #00F778;
-    font-family: 'Exo 2', sans-serif;
-}
-
-.team-item {
+.carousel-container {
     position: relative;
-    border: 2px solid #fff; /* Borda branca ao redor da div */
-    border-radius: 0.5rem;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.carousel-title {
     text-align: center;
-    padding: 1rem;
-    background-color: transparent; /* Fundo transparente por padrão */
-    height: 90%; /* Altura da div */
-    flex-direction: column;
-    justify-content: space-between;
-    max-width: 600px; /* Limite máximo de largura */
-    margin: 0 auto; /* Centraliza as divs */
-    opacity: 0; /* Inicialmente invisível */
-    transform: scale(0.2); /* Inicialmente pequeno */
-    max-width: 400px;
+    margin-bottom: 60px;
+    font-size: 36px;
+    color: white;
+}
+
+.carousel {
     display: flex;
+    align-items: center;
+    position: relative;
+    flex-direction: column; /* Ajusta para empilhar o conteúdo verticalmente */
 }
 
-
-/* Classe que será adicionada quando a div estiver visível */
-.team-item.visible {
-    animation: scaleUp 0.8s ease-out forwards;
-}
-
-.team-item:hover {
-    background-color: #0B3674; /* Fundo azul ao passar o mouse */
-    transform: scale(1.05); /* Zoom suave ao passar o mouse */
-}
-
-.team-item img {
+.carousel-wrapper {
     width: 100%;
-    height: 70%; /* Ajuste da altura da imagem para ser retangular na vertical */
-    object-fit: cover;
-    border-radius: 0.5rem;
 }
 
-.team-text {
-    margin-top: 1rem;
-}
-
-.team-social {
-   margin-top: 1rem;
-    justify-content: center;
-}
-.team-social .btn {
-    color: #fff; /* Ícones brancos */
-    background-color: transparent; /* Fundo transparente para os botões */
-    border: none; /* Remover borda */
-    border-radius: 50%;
-    padding: 5px;
-    transition: transform 0.3s ease, opacity 0.3s ease; /* Animação suave */
-    font-size: 1.2rem; /* Aumenta o tamanho dos ícones */
-}
-
-.team-social .btn:hover {
-    transform: scale(1.1); 
-    color: #0B3674;
-    background-color: white;
-}
-
-.team-social {
-    margin-top: 1rem;
-}
-
-.team-social .btn-square {
-    margin: 0 0.5rem; /* Aumenta o espaço entre os ícones */
-}
-
-.btn-square {
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    text-align: center;
-    border-radius: 50%;
-    transition: background-color 0.3s ease;
-}
-
-.btn-square:hover {
-    background-color: #0056b3; /* Mudar cor ao passar o mouse */
-    color: #fff;
-}
-
-.row.g-4 {
+.carousel-inner {
     display: flex;
-    justify-content: center; /* Centraliza as colunas */
-    gap: 2rem; /* Espaço entre as divs */
+    transition: transform 0.5s ease-in-out;
+    flex-direction: row; /* Garante que os itens do carrossel fiquem lado a lado */
 }
 
-.col-lg-4,
-.col-md-6 {
-    flex: 1;
-    max-width: 100%; /* Ajuste para ocupar toda a largura disponível */
-    margin: 0 0.5%; /* Pequeno espaço entre as colunas */
-}
-.team-text p.small-text {
-    margin-top: 0.5rem;
-    font-size: 0.9rem; /* Tamanho da fonte menor */
-    color: #6c757d; /* Cor do texto */
+.carousel-item {
+    min-width: 300px;
+    margin: 0 20px;
+    text-align: center;
+    border: 2px solid #fff; /* Bordas brancas */
+    border-radius: 15px; /* Bordas arredondadas */
+    transition: box-shadow 0.3s ease-in-out;
+    overflow: hidden; /* Para garantir que a borda arredondada se aplique corretamente */
 }
 
-@media (max-width: 768px) {
-    .col-lg-4,
-    .col-md-6 {
-        max-width: 100%;
-        margin-bottom: 2rem;
-    }
-    
+.carousel-item img {
+    margin-top: 8px;
+    width: 60%;
+    border-radius: 50%; /* Bordas arredondadas nas imagens também */
 }
 
+.carousel-item p {
+    margin: 5px 0;
+    font-size: 18px;
+    color: white;
+}
 
+.carousel-item .position {
+    margin: 20px;
+    font-size: 16px;
+    color: white;
+}
+
+.carousel-item:hover {
+    box-shadow: 0 0 20px #00F778; /* Box shadow verde ao passar o mouse */
+    transform: scale(1.1);
+}
+.carousel-item:hover.carousel-item img{
+    margin-top: 8px;
+
+    border-radius: 3% ;
+}
+
+.arrow-container {
+    display: flex;
+    justify-content: center; /* Centraliza as setas horizontalmente */
+    margin-top: 10px; /* Espaço entre o carrossel e as setas */
+}
+.arrow {
+    border: none;
+    font-size: 32px; /* Tamanho maior das setas */
+    cursor: pointer;
+    color: white;
+    background: none;
+    margin: 0 10px; /* Espaçamento entre as setas */
+    margin-top: 40px;
+    z-index: 1;
+}
+.arrow:hover {
+    transform: scale(1.2);
+}
+
+.left-arrow {
+    left: 10px;
+}
+
+.right-arrow {
+    right: 10px;
+}
+
+.social-buttons {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.social-button {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    color: white; /* Cor dos ícones */
+    line-height: 30px;
+    margin-bottom: 8px;
+    text-align: center;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+    text-decoration: none;
+}
+
+.social-button:hover {
+    background-color: white; /* Fundo azul ao passar o mouse */
+    color: #0B3674; /* Cor branca dos ícones ao passar o mouse */
+}

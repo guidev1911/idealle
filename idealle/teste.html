@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosso Time</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-title {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #0B3674;
+        }
+
+        .carousel {
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel-wrapper {
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-item {
+            min-width: 300px;
+            margin: 0 10px;
+            text-align: center;
+            border: 2px solid #fff; /* Bordas brancas */
+            border-radius: 15px; /* Bordas arredondadas */
+            transition: box-shadow 0.3s ease-in-out;
+            overflow: hidden; /* Para garantir que a borda arredondada se aplique corretamente */
+        }
+
+        .carousel-item img {
+            width: 100%;
+            border-radius: 15px; /* Bordas arredondadas nas imagens também */
+        }
+
+        .carousel-item p {
+            margin: 5px 0;
+            font-size: 18px;
+            color: #0B3674;
+        }
+
+        .carousel-item .position {
+            margin: 0;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .carousel-item:hover {
+            box-shadow: 0 0 10px #00F778; /* Box shadow verde ao passar o mouse */
+        }
+
+        .arrow {
+            border: none;
+            font-size: 32px; /* Tamanho maior das setas */
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 10px;
+            color: #0B3674;
+            background: none;
+            z-index: 1;
+        }
+
+        .left-arrow {
+            left: 10px;
+        }
+
+        .right-arrow {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <section class="carousel-container">
+        <h2 class="carousel-title">Nosso Time</h2>
+        <div class="carousel">
+            <button class="arrow left-arrow">&#9664;</button>
+            <div class="carousel-wrapper">
+                <div class="carousel-inner">
+                    <div class="carousel-item">
+                        <img src="imagem1.jpg" alt="Funcionário 1">
+                        <p>Nome do Funcionário 1</p>
+                        <p class="position">Cargo do Funcionário 1</p>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="imagem2.jpg" alt="Funcionário 2">
+                        <p>Nome do Funcionário 2</p>
+                        <p class="position">Cargo do Funcionário 2</p>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="imagem3.jpg" alt="Funcionário 3">
+                        <p>Nome do Funcionário 3</p>
+                        <p class="position">Cargo do Funcionário 3</p>
+                    </div>
+                    <!-- Adicione mais itens conforme necessário -->
+                </div>
+            </div>
+            <button class="arrow right-arrow">&#9654;</button>
+        </div>
+    </section>
+
+    <script>
+        const leftArrow = document.querySelector('.left-arrow');
+        const rightArrow = document.querySelector('.right-arrow');
+        const carouselInner = document.querySelector('.carousel-inner');
+        const itemWidth = document.querySelector('.carousel-item').offsetWidth;
+        const gap = 20; // Ajuste o gap entre os itens, se necessário
+        let currentIndex = 0;
+
+        function updateCarousel() {
+            const offset = -(currentIndex * (itemWidth + gap));
+            carouselInner.style.transform = `translateX(${offset}px)`;
+        }
+
+        leftArrow.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCarousel();
+            }
+        });
+
+        rightArrow.addEventListener('click', () => {
+            if (currentIndex < carouselInner.children.length - 1) {
+                currentIndex++;
+                updateCarousel();
+            }
+        });
+    </script>
+</body>
+</html>

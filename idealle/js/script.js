@@ -420,8 +420,14 @@ const leftArrow = document.querySelector('.left-arrow');
 const rightArrow = document.querySelector('.right-arrow');
 const carouselInner = document.querySelector('.carousel-inner');
 const itemWidthTeam = document.querySelector('.carousel-item').offsetWidth;
-const gap = 20; // Ajuste o gap entre os itens, se necessário
+const gap = 40; // Ajuste o gap entre os itens, se necessário
 let currentIndexTeam = 0;
+
+// Função para detectar a resolução e ajustar o número de itens visíveis
+function getVisibleItems() {
+    const mediaQuery = window.matchMedia('(max-width: 1024px)'); // Defina o tamanho da tela para celular
+    return mediaQuery.matches ? 1 : 4; // Retorna 1 para celular, 4 para outras resoluções
+}
 
 function updateCarousel() {
     const offset = -(currentIndexTeam * (itemWidthTeam + gap));
@@ -436,10 +442,16 @@ leftArrow.addEventListener('click', () => {
 });
 
 rightArrow.addEventListener('click', () => {
-    if (currentIndexTeam < carouselInner.children.length - 1) {
+    const visibleItems = getVisibleItems(); // Verifica quantos itens são visíveis com base na tela
+    if (currentIndexTeam < carouselInner.children.length - visibleItems) {
         currentIndexTeam++;
         updateCarousel();
     }
+});
+
+// Escuta a mudança de resolução para atualizar o número de itens visíveis quando a tela for redimensionada
+window.addEventListener('resize', () => {
+    updateCarousel(); // Atualiza o carrossel ao mudar a resolução
 });
 
   

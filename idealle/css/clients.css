@@ -91,4 +91,8 @@
     font-size: 0.9rem;
     color: #777;
 }
+.testimonial-author i{
+    color: #FFD700; /* Cor de ouro para estrelas */
+    margin-right: 5px; /* Espaço entre as estrelas */
+}
 

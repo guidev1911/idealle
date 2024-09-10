@@ -95,7 +95,7 @@ function createStars() {
     const canvas = document.getElementById('starfield');
     const ctx = canvas.getContext('2d');
     let stars = [];
-    let numStars = 900; // Aumentando o número de estrelas para mais realismo
+    let numStars = 400; // Aumentando o número de estrelas para mais realismo
 
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;

@@ -1,3 +1,26 @@
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Impede o envio padrão do formulário
+
+    const formData = new FormData(this);
+    const data = Object.fromEntries(formData.entries());
+
+    fetch('http://localhost:3000/send-email', { // Inclua o URL completo
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.text())
+    .then(result => {
+        alert(result); // Mostra a resposta do servidor
+    })
+    .catch(error => {
+        console.error('Erro:', error);
+        alert('Houve um erro ao enviar a mensagem.');
+    });
+});
+
 document.addEventListener("DOMContentLoaded", function() {
     // JavaScript para abrir o vídeo com fundo borrado
 
@@ -453,5 +476,6 @@ rightArrow.addEventListener('click', () => {
 window.addEventListener('resize', () => {
     updateCarousel(); // Atualiza o carrossel ao mudar a resolução
 });
+
 
   
